@@ -12,25 +12,36 @@ export const HeroItem = ({
     
  const imageUrl = `/assets/${ id }.jpg`;
 
-  return (
+    return (
 
-   <div className="col">
-   <div className="card">
-   <div className="row no-gutter">
-   <div className="col-4">
-    <img className="card-img" alt={ superhero } src={ imageUrl }/>
-     <h1>{ superhero }</h1>
-    <h2>{ publisher }</h2>
-    <p>{ alter_ego }
-    { first_appearance }
-    { characters }
-    </p>
-   </div>
-       
-   </div>
-  
-   </div>
-  
-   </div>
-  )
+        <div className="col">
+            <div className="card">
+                <div className="row no-gutters">
+                    <div className="col-4">
+                        <img className="card-img" alt={ superhero } src={ imageUrl } />
+                    </div>
+                    <div className="col-8">
+                        <div className="card-body">
+                            <h3 className="card-title">{ superhero }</h3>
+                            <h5 className="card-subtitle">{ publisher }</h5>
+                            <p className="card-text">{ alter_ego }   </p>
+                            <p className="card-text"> <small className="text-muted">{ first_appearance }</small> </p>
+                             
+                            {
+                                ( alter_ego !== characters ) && ( <p className="card-text">{ characters }</p> )
+                            }
+                         
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+            )
 }
