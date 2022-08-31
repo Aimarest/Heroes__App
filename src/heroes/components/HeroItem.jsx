@@ -1,15 +1,23 @@
 
 
 
-export const HeroItem = ({ heroe }) => {
+export const HeroItem = ({ 
+    superhero,
+    publisher,
+    alter_ego,
+    first_appearance,
+    characters
+ }) => {
+    
+ 
 
   return (
    <>
-    <h1>{ heroe.superhero }</h1>
-    <h2>{ heroe.publisher }</h2>
-    <p>{ heroe.alter_ego }
-    { heroe.first_appearance }
-    { heroe.characters }
+    <h1>{ superhero }</h1>
+    <h2>{ publisher }</h2>
+    <p>{ alter_ego }
+    { first_appearance }
+    { characters }
     </p>
    </>
   )
