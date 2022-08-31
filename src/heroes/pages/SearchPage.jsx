@@ -1,13 +1,20 @@
 import { useForm } from '../../hooks/useForm';
 import queryString from 'query-string';
-import { HeroItem } from '../components';
 import { useNavigate, useLocation } from 'react-router-dom';
+
+import { getHeroesByName } from '../helpers';
+import { HeroItem } from '../components';
 
 export const SearchPage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
   const { q = '' } = queryString.parse( location.search ); // los query params son opcionales, por lo que pueden no venir, y SIEMPRE SON STRINGS
+
+
+  const heroes = getHeroesByName(q);
+
   const { searchText, onInputChange, onResetForm } = useForm({
 
     searchText:'',
@@ -21,6 +28,7 @@ export const SearchPage = () => {
 
     navigate(`?q=${ searchText }`)
   }
+
   return (
     <>
       <h1>Search</h1>
@@ -50,6 +58,11 @@ export const SearchPage = () => {
           <div className="alert alert-danger">
             No hero with <b>{ q }</b>
           </div>
+          { 
+            heroes.map( hero => (
+            <HeroItem key={ hero.id }{...hero }/>
+          ))
+          }
         </div>
 
       </div>  
