@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { getHeroById } from '../helpers';
 
@@ -9,7 +10,7 @@ const navigate = useNavigate();
 
 
 
-const hero = getHeroById( id )
+const hero = useMemo(() => getHeroById( id ), [ id ]); 
 
 
 const imageUrl = `/assets/heroes/${ id }.jpg`
