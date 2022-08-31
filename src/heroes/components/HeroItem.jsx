@@ -1,5 +1,5 @@
 
-
+import { Link } from "react-router-dom";
 
 export const HeroItem = ({ 
     id,
@@ -31,7 +31,7 @@ export const HeroItem = ({
                                 ( alter_ego !== characters ) && ( <p className="card-text">{ characters }</p> )
                             }
                          
-
+                            <Link to={`/hero/${ id }` }>More...</Link>
 
                         </div>
 
