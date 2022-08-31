@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { getHeroById } from '../helpers';
 
@@ -8,7 +8,7 @@ const { id } = useParams();
 
 const navigate = useNavigate();
 
-
+const [isClicked, setIsClicked] = useState(false);
 
 const hero = useMemo(() => getHeroById( id ), [ id ]); 
 
@@ -16,10 +16,15 @@ const hero = useMemo(() => getHeroById( id ), [ id ]);
 const imageUrl = `/assets/heroes/${ id }.jpg`
 
   const onClickBack = () => {
-
-    navigate(-1)
+    setIsClicked(true)
+    setTimeout(() => {
+       navigate(-1)
+    }, 800);
+   
     
   }
+  
+const backAnimated = isClicked ? 'animate__fadeOutLeftBig' : '';
 
 if( !hero ){
   return <Navigate to="/marvel"/>
@@ -31,7 +36,7 @@ if( !hero ){
     <div className='col-4'>
       <img src={ imageUrl }
       alt={ hero.superhero }
-      className='img-thumbnail animate__animated animate__fadeInLeft animate__slow'
+      className={`img-thumbnail animate__animated animate__fadeInLeft animate__slow ${ backAnimated }`}
       />
     </div>
     <div className='col-8'>
