@@ -16,8 +16,11 @@ const hero = useMemo(() => getHeroById( id ), [ id ]);
 const imageUrl = `/assets/heroes/${ id }.jpg`
 
   const onClickBack = () => {
+
     setIsClicked(true)
+
     setTimeout(() => {
+      
        navigate(-1)
     }, 800);
    
