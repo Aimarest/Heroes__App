@@ -10,7 +10,7 @@ export const HeroItem = ({
     characters
  }) => {
     
- 
+ const imageUrl = `/assets/${ id }.jpg`;
 
   return (
 
@@ -18,7 +18,7 @@ export const HeroItem = ({
    <div className="card">
    <div className="row no-gutter">
    <div className="col-4">
-    <img className="card-img" alt={ superhero } src={`/assets/${ id }.jpg`}/>
+    <img className="card-img" alt={ superhero } src={ imageUrl }/>
      <h1>{ superhero }</h1>
     <h2>{ publisher }</h2>
     <p>{ alter_ego }
