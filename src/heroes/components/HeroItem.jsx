@@ -15,10 +15,10 @@ export const HeroItem = ({
     return (
 
         <div className="col">
-            <div className="card">
+            <div className="card animate__animated animate__jackInTheBox">
                 <div className="row no-gutters">
                     <div className="col-4">
-                        <img className="card-img" alt={ superhero } src={ imageUrl } />
+                        <img className="card-img " alt={ superhero } src={ imageUrl } />
                     </div>
                     <div className="col-8">
                         <div className="card-body">
