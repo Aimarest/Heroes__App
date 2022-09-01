@@ -14,7 +14,7 @@ const onLogout = () =>{
 
 
 const { user } = useContext( AuthContext );
-const name = user.name;
+const name = user?.name;
 
 
   return (
