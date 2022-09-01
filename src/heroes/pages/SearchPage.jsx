@@ -25,7 +25,7 @@ export const SearchPage = () => {
 
     ev.preventDefault();
     navigate(`?q=${ searchText }`);
-   
+    
   }
 
   return (
