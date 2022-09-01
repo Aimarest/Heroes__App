@@ -3,20 +3,19 @@ import { AuthContext } from '../../auth/context/AuthContext';
 import { useContext } from 'react';
 export const Navbar = () => {
 
-    const navigate = useNavigate();
+const navigate = useNavigate();
+
+
+const { user, logout } = useContext( AuthContext );
+const name = user?.name;
 
 const onLogout = () =>{
+    logout();
     navigate('/login', {
         replace:true
     });
 
 }
-
-
-const { user } = useContext( AuthContext );
-const name = user?.name;
-
-
   return (
     
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
@@ -25,7 +24,7 @@ const name = user?.name;
                 className="navbar-brand" 
                 to="/"
             >
-               Login
+              HÉROES
             </Link>
 
             <div className="navbar-collapse">

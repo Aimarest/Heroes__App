@@ -3,7 +3,7 @@ import { AuthContext } from "./AuthContext"
 import { authReducer } from "./authReducer"
 
 
-import { types } from "../types/types":
+import { types } from "../types/types";
 
 const initialState = {
     logged: false,
@@ -38,11 +38,21 @@ const [ authState, dispatch ] = useReducer( authReducer, initialState, init  );
 
       dispatch( action )
   }
+    
+  const logout = () => {
+    const logoutAction = {
+      type: types.logout,
+
+    }
+    localStorage.removeItem('user');
+    dispatch(logoutAction)
+  }
   return (
   <AuthContext.Provider value = {{ 
 
     ...authState,
-    login:login
+    login:login,
+    logout:logout
 
   }}>
 
