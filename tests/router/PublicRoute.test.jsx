@@ -23,6 +23,7 @@ describe('Pruebas sobre el componente PublicRoute ', () => {
      })
 
      test('Si está autenticado debe de navegar a la pagina de Marvel', () => { 
+        
         const  contextValue = {
             logged:true,
             user:{
