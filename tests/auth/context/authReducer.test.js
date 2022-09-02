@@ -2,15 +2,15 @@ import { authReducer, types } from '../../../src/auth';
 
 describe('Pruebas sobre el authReducer', () => {
 
-  const initialState = {
+  const oneUser = {
         id:'ABC',
         name: 'Juanita'
     }
 
 test('Debe de retornar el estado por defecto', () => { 
 
-  const newState = authReducer( initialState, {});
-  expect( newState ).toBe( initialState )
+  const state = authReducer( { logged:false }, {});
+  expect( state ).toEqual( { logged:false } )
 
  })
 
@@ -18,28 +18,29 @@ test('Debe de retornar el estado por defecto', () => {
 
     const action = {
         type: types.login ,
-        payload: initialState
+        payload: oneUser
     }
-    const newState = authReducer( initialState, action);
+    const newState = authReducer( { logged:false }, action);
    // console.log(newState);
     expect( newState.logged ).toBeTruthy();
-    expect( newState.user ).toEqual( initialState );
+    expect( newState.user ).toEqual( oneUser );
   })
 
   test('Al hacer logout debe borrar el nombre del usuario y el logged debe ser falso', () =>{
-    const action1 = {
-        type: types.login ,
-        payload: initialState
+  
+    const state = {
+        logged: true,
+        user: oneUser
     }
-    const newState1 = authReducer( initialState, action1);
 
-    const action2 = {
+    const action = {
         type: types.logout
     }
-    const newState2 = authReducer( newState1, action2);
+    const newState = authReducer( state, action );
     
-    console.log(newState2);
-    expect( newState2.logged ).toBeFalsy();
-    expect( newState2.user ).not.toBeDefined();
+    //console.log(newState);
+    
+    expect( newState.logged ).toBeFalsy();
+    expect( newState.user ).not.toBeDefined();
   })
  })
