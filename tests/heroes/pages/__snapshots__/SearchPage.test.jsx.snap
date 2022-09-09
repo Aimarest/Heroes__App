@@ -16,7 +16,9 @@ exports[`Pruebas sobre el componente SearchPage Debe de mostrarse correctamente 
         Searching
       </h4>
       <hr />
-      <form>
+      <form
+        aria-label="form-control"
+      >
         <input
           autocomplete="off"
           class="form-control"
