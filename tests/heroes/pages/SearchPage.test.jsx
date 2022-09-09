@@ -54,6 +54,8 @@ describe('Pruebas sobre el componente SearchPage', () => {
          //  screen.debug()
       })
       test('Debe de llamar el navigate a la pantalla nueva', () => {
+
+        const inputValue = 'superman';
         render(
             <MemoryRouter initialEntries={['/search']}>
                 <SearchPage />
@@ -61,9 +63,9 @@ describe('Pruebas sobre el componente SearchPage', () => {
         );
        const input = screen.getByRole('textbox');
         const button = screen.getByRole('button');
-        fireEvent.change(input,{target: { value:'superman' }});
+        fireEvent.change(input,{target: { value: inputValue }});
            fireEvent.click(button);
-         expect(mockedUseNavigate).toHaveBeenCalledWith(`?q=superman`)
+         expect(mockedUseNavigate).toHaveBeenCalledWith(`?q=${inputValue}`)
            screen.debug()
       })
        })
